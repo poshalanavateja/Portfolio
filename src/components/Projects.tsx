@@ -6,6 +6,8 @@ type Project = {
   description: string;
   stack: string[];
   flagship?: boolean;
+  liveUrl?: string;
+  githubUrl?: string;
 };
 
 const PROJECTS: Project[] = [
@@ -30,6 +32,7 @@ const PROJECTS: Project[] = [
     description:
       "Biomedical ML system fusing EfficientNetB0 handwriting CNN & Random Forest voice classifier (92.3% test accuracy).",
     stack: ["Python", "TensorFlow", "scikit-learn", "OpenCV", "EfficientNetB0"],
+    liveUrl: "https://parkinsons-disease-prediction-ml.vercel.app",
   },
   {
     index: "04",
@@ -53,7 +56,19 @@ function Card({ p }: { p: Project }) {
         <h3
           className={`mt-4 font-semibold tracking-tight ${p.flagship ? "text-2xl sm:text-3xl" : "text-xl"}`}
         >
-          {p.title}
+          {p.liveUrl ? (
+            <a
+              href={p.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
+            >
+              {p.title}
+              <span className="text-sm font-normal text-muted-foreground">↗</span>
+            </a>
+          ) : (
+            p.title
+          )}
         </h3>
         <p className="mt-3 text-sm text-muted-foreground leading-relaxed sm:text-base">{p.description}</p>
       </div>
@@ -70,8 +85,18 @@ function Card({ p }: { p: Project }) {
           ))}
         </ul>
         <div className="mt-6 flex flex-wrap gap-6 font-mono text-xs">
+          {p.liveUrl && (
+            <a
+              href={p.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-draw text-primary font-semibold flex items-center gap-1"
+            >
+              Live Demo ↗
+            </a>
+          )}
           <a
-            href="https://github.com/poshalanavateja"
+            href={p.githubUrl || "https://github.com/poshalanavateja"}
             target="_blank"
             rel="noopener noreferrer"
             className="link-draw text-foreground hover:text-primary"

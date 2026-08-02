@@ -32,7 +32,7 @@ Designed with a sleek "Terminal meets Editorial" dark aesthetic, vibrant electri
    - Multi-agent LLM system using LangChain, LangGraph, FastAPI, and Gemini 2.0 Flash for clause-level vendor compliance analysis and report generation.
 2. **Zordr — Campus Food Ordering Ecosystem** *(Lead Developer)*
    - Multi-tenant web/mobile application with RBAC, financial settlements, real-time inventory tracking, React Native, Express, and PostgreSQL. Sold MVP to a client company.
-3. **Multimodal Parkinson's Disease Prediction** *(Major Project)*
+3. **[Multimodal Parkinson's Disease Prediction](https://parkinsons-disease-prediction-ml.vercel.app)** *(Major Project)*
    - Biomolecular ML system fusing EfficientNetB0 CNN handwriting analysis with Random Forest voice classification (92.3% accuracy, 0.97 recall).
 4. **Deepfake Video Detection CNN**
    - EfficientNetB0-based classifier trained on Celeb-DF (v2) dataset with 88.5% validation accuracy.
