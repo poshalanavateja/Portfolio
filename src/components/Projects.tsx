@@ -3,8 +3,7 @@ import { Reveal } from "./Reveal";
 type Project = {
   index: string;
   title: string;
-  problem: string;
-  detail: string;
+  description: string;
   stack: string[];
   flagship?: boolean;
 };
@@ -13,34 +12,30 @@ const PROJECTS: Project[] = [
   {
     index: "01",
     title: "Multi-Agent AI Vendor Bid Evaluation",
-    problem: "Manual and bias-prone government procurement evaluation processes.",
-    detail:
-      "GDG Agentathon 2025: Multi-agent LLM system using LangChain, LangGraph, FastAPI, and Gemini-2.0 Flash for clause-level vendor compliance analysis. Features orchestrator, RFP intelligence, compliance, and report-generation agents producing audit-ready PDFs with a real-time React dashboard.",
+    description:
+      "GDG Agentathon 2025: Multi-agent LLM system built with LangChain & FastAPI for automated clause-level procurement analysis.",
     stack: ["LangChain", "LangGraph", "FastAPI", "Gemini 2.0", "React"],
     flagship: true,
   },
   {
     index: "02",
     title: "Zordr — Campus Food Ordering Ecosystem",
-    problem: "Campus food ordering inefficiencies and fragmented vendor workflows.",
-    detail:
-      "Architected multi-tenant food ordering ecosystem with RBAC, financial settlements, and real-time inventory tracking (PostgreSQL & Prisma). Built React Native + Expo mobile app and React admin dashboard. Sold MVP to client company for ₹80,000 ($1,000 USD).",
+    description:
+      "Multi-tenant food ordering ecosystem with RBAC & real-time inventory tracking; sold MVP to client for ₹80,000 ($1,000 USD).",
     stack: ["React Native", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma"],
   },
   {
     index: "03",
     title: "Multimodal Parkinson's Disease Prediction",
-    problem: "Single-signal screening misses early-stage motor decline.",
-    detail:
-      "Major Project: Multimodal biomedical prediction combining EfficientNetB0 CNN on handwriting spirals fused with a Random Forest voice classifier. Achieved 92.3% test accuracy and 0.97 recall through 5-fold cross-validation with late-fusion probability. IEEE/Scopus manuscript in prep.",
+    description:
+      "Biomedical ML system fusing EfficientNetB0 handwriting CNN & Random Forest voice classifier (92.3% test accuracy).",
     stack: ["Python", "TensorFlow", "scikit-learn", "OpenCV", "EfficientNetB0"],
   },
   {
     index: "04",
     title: "Deepfake Video Detection CNN",
-    problem: "Targeted AI-generated video misinformation across media platforms.",
-    detail:
-      "EfficientNetB0-based classifier trained on Celeb-DF (v2) dataset (10K images). Achieved 88.5% validation accuracy, 87.8% test accuracy, F1-score 0.87, and AUC-ROC 0.93 with GPU-accelerated OpenCV preprocessing.",
+    description:
+      "EfficientNetB0-based classifier trained on Celeb-DF (v2) dataset with 88.5% validation accuracy & OpenCV preprocessing.",
     stack: ["Python", "EfficientNetB0", "CNN", "OpenCV", "PyTorch"],
   },
 ];
@@ -56,14 +51,11 @@ function Card({ p }: { p: Project }) {
           {p.flagship && <span className="text-primary font-semibold">flagship · GDG Agentathon 2025</span>}
         </div>
         <h3
-          className={`mt-5 font-semibold tracking-tight ${p.flagship ? "text-3xl sm:text-4xl" : "text-2xl"}`}
+          className={`mt-4 font-semibold tracking-tight ${p.flagship ? "text-2xl sm:text-3xl" : "text-xl"}`}
         >
           {p.title}
         </h3>
-        <p className="mt-3 max-w-prose text-sm text-muted-foreground sm:text-base">{p.problem}</p>
-        <p className="mt-5 max-w-prose border-l border-primary/40 pl-4 font-mono text-xs leading-relaxed text-muted-foreground sm:text-sm">
-          {p.detail}
-        </p>
+        <p className="mt-3 text-sm text-muted-foreground leading-relaxed sm:text-base">{p.description}</p>
       </div>
 
       <div className="mt-8">
