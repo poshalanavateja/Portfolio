@@ -44,17 +44,37 @@ const PROJECTS: Project[] = [
 ];
 
 function Card({ p }: { p: Project }) {
+  const handleClick = (e: React.MouseEvent) => {
+    if (p.liveUrl) {
+      const target = e.target as HTMLElement;
+      if (target.closest("a")) return;
+      window.open(p.liveUrl, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <article
-      className="grain group flex h-full flex-col justify-between rounded-2xl border border-border bg-surface p-6 transition-colors duration-200 hover:border-primary/40 sm:p-8"
+      onClick={handleClick}
+      className={`grain group relative flex h-full flex-col justify-between rounded-2xl border border-border bg-surface p-6 transition-all duration-200 hover:border-primary/50 sm:p-8 ${
+        p.liveUrl ? "cursor-pointer hover:bg-surface/80" : ""
+      }`}
     >
       <div>
         <div className="flex items-center justify-between gap-4 font-mono text-xs text-muted-foreground">
           <span>{p.index}</span>
-          {p.flagship && <span className="text-primary font-semibold">flagship · GDG Agentathon 2025</span>}
+          <div className="flex items-center gap-2">
+            {p.flagship && <span className="text-primary font-semibold">flagship · GDG Agentathon 2025</span>}
+            {p.liveUrl && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-0.5 text-[10px] font-mono text-primary border border-primary/20">
+                Live Demo ↗
+              </span>
+            )}
+          </div>
         </div>
         <h3
-          className={`mt-4 font-semibold tracking-tight ${p.flagship ? "text-2xl sm:text-3xl" : "text-xl"}`}
+          className={`mt-4 font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors ${
+            p.flagship ? "text-2xl sm:text-3xl" : "text-xl"
+          }`}
         >
           {p.liveUrl ? (
             <a
@@ -64,7 +84,7 @@ function Card({ p }: { p: Project }) {
               className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
             >
               {p.title}
-              <span className="text-sm font-normal text-muted-foreground">↗</span>
+              <span className="text-sm font-normal text-muted-foreground group-hover:text-primary">↗</span>
             </a>
           ) : (
             p.title
@@ -91,6 +111,7 @@ function Card({ p }: { p: Project }) {
               target="_blank"
               rel="noopener noreferrer"
               className="link-draw text-primary font-semibold flex items-center gap-1"
+              onClick={(e) => e.stopPropagation()}
             >
               Live Demo ↗
             </a>
@@ -100,6 +121,7 @@ function Card({ p }: { p: Project }) {
             target="_blank"
             rel="noopener noreferrer"
             className="link-draw text-foreground hover:text-primary"
+            onClick={(e) => e.stopPropagation()}
           >
             GitHub
           </a>
