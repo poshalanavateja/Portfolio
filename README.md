@@ -39,34 +39,44 @@ Designed with a sleek "Terminal meets Editorial" dark aesthetic, vibrant electri
 
 ---
 
-## 💻 Local Development
+## 💻 Installation & Development
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/) (v18 or higher recommended)
 - `npm` or `bun`
 
-### Steps
+### Installation
+```bash
+git clone https://github.com/poshalanavateja/Portfolio.git
+cd Portfolio
+npm install
+```
 
-1. **Clone the repository:**
-   ```bash
-   git clone <repository-url>
-   cd code-editorial-main
-   ```
+### Development
+Start the local development server:
+```bash
+npm run dev
+```
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+### Build for Production
+Generate optimized client & serverless build artifacts:
+```bash
+npm run build
+```
 
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
+---
 
-4. **Build for production:**
-   ```bash
-   npm run build
-   ```
+## 🌐 Deployment Instructions
+
+### Deploy to Vercel (Recommended)
+1. Push your repository to GitHub.
+2. Log into [vercel.com](https://vercel.com/) and click **Add New Project**.
+3. Import your `Portfolio` repository and click **Deploy**.
+
+### Deploy to Netlify
+1. Log into [netlify.com](https://netlify.com/) and choose **Import from GitHub**.
+2. Set build command to `npm run build` and publish directory to `.output/public`.
+3. Click **Deploy Site**.
 
 ---
 
