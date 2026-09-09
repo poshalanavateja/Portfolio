@@ -25,7 +25,7 @@ export function Contact() {
           </p>
           <a
             href={`mailto:${EMAIL}`}
-            className="link-draw mt-8 inline-block text-[clamp(2rem,6vw,4.5rem)] leading-[1.05] font-semibold tracking-tight break-all hover:text-primary"
+            className="link-draw mt-8 inline-block text-[clamp(1.25rem,5.2vw,4.5rem)] sm:text-[clamp(2.5rem,6vw,4.5rem)] leading-tight font-semibold tracking-tight whitespace-nowrap max-w-full pb-2 text-foreground hover:text-primary transition-colors"
           >
             {EMAIL}
           </a>
