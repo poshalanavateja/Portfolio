@@ -20,6 +20,27 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "AI focus assistant, multimodal Parkinson's prediction, and agentic research tooling.",
       },
+      { property: "og:url", content: "https://www.navateja.in/" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.navateja.in/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Poshala Navateja",
+          url: "https://www.navateja.in/",
+          jobTitle: "Software Engineer",
+          sameAs: [
+            "https://github.com/poshalanavateja",
+            "https://www.linkedin.com/in/poshalanavateja/",
+          ],
+        }),
+      },
     ],
   }),
   component: Index,

@@ -85,9 +85,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "AI-native tools, agentic systems and applied machine learning projects.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.navateja.in/" },
+      { property: "og:site_name", content: "Poshala Navateja" },
+      { name: "author", content: "Poshala Navateja" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "canonical", href: "https://www.navateja.in/" },
       {
         rel: "stylesheet",
         href: appCss,
